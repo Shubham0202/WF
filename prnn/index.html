@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+    <script>
+        function validateForm() {
+            let prn = document.getElementById("prn").value;
+            let prnRegex = /^[0-9]{1,12}$/;
+            
+            if (!prnRegex.test(prn)) {
+                alert("PRN No. must be a number and should not exceed 12 digits.");
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function convertToUppercase() {
+            let nameField = document.getElementById("name");
+            nameField.value = nameField.value.toUpperCase();
+        }
+    </script>
+</head>
+<body>
+    <h2>Admission Form</h2>
+    <form onsubmit="return validateForm()">
+        <label for="prn">PRN No.:</label>
+        <input type="text" id="prn" name="prn" required><br><br>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" onkeyup="convertToUppercase()" required><br><br>
+        
+        <label for="class">Class:</label>
+        <input type="text" id="class" name="class" required><br><br>
+        
+        <label for="qualification">Previous Qualification:</label>
+        <input type="text" id="qualification" name="qualification" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
