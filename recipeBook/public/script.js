@@ -6,10 +6,12 @@ document.getElementById('recipe-form').addEventListener('submit', function(event
 
     const recipeList = document.getElementById('recipes');
     const listItem = document.createElement('li');
-    listItem.textContent = `${recipeName}: ${recipeInstructions}`;
-    recipeList.appendChild(listItem);
-
+    listItem.innerHTML = `${recipeName}: ${recipeInstructions} <button onclick="deleteRecipe(this)">Delete</button>`;
     
+    recipeList.appendChild(listItem);
     document.getElementById('recipe-form').reset();
 });
 
+function deleteRecipe(button) {
+    button.parentElement.remove();
+}
